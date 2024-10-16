@@ -1,0 +1,101 @@
+.content{
+  --background: white;
+  display: flex;
+  flex-direction: column;
+
+  ion-button{
+    color: black;
+    margin-top: 2vh;
+  }
+
+}
+
+.register-process{
+  display: flex;
+  flex-direction: column;
+
+  color: black;
+
+  .welcome{
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 4vh;
+
+    line-height: 1;
+
+    text-align: start;
+    margin-left: 2vh;
+    margin-top: 6vh;
+
+  }
+
+  .register-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10vh;
+
+    border: 1vh;
+    border-color: black;
+
+    ion-input {
+      width: 90%; /* Ensures the input takes the full width of its parent */
+      margin-bottom: 3vh;
+      --background: #f0f0f0; --color: #000;
+      --padding-start: 2vh;
+    }
+
+    #password{
+    }
+
+    #forgotPass{
+      color: rgb(0, 70, 150);
+      margin-left: 60%;
+      font-size: 1.3vh;
+    }
+
+    #register-btn{
+      width: 90%;
+      --background: black;
+      color: white;
+      font-weight: bold;
+
+    }
+
+    #orRegister{
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+      align-items: center;
+
+
+      margin-top: 2vh;
+      font-size: 1.7vh;
+
+      color: lightslategray;
+    }
+  }
+
+}
+
+.loginInRegister{
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.7vh;
+
+  margin-top: 3vh;
+
+  #login-register-btn{
+    margin-left: 1vh;
+    text-decoration: none;
+  }
+}
+
+

@@ -1,27 +1,66 @@
-#container {
-  text-align: center;
-
+.background-image {
   position: absolute;
+  size: 100%;
+  top: 0;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 0;
+  background-image: url('/assets/photo/giralda.jpg'); /* Cambia la URL de la imagen */
+  background-size: cover; /* Cubre todo el contenedor */
+  background-position: center center; /* Centra la imagen */
+  opacity: 0.3; /* Ajusta la opacidad aquí (0.0 - 1.0) */
+  z-index: -1; /* Coloca el div detrás del contenido */
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.content{
+  display: flex;
+  flex-direction: column;
+  --background: transparent;
+
+  justify-content: center;
+  align-items: center;
+
+  .logo{
+    text-align: center;
+    padding-top: 20vh;
+
+    font-size: 4rem;
+    font-family: "Nunito", sans-serif;
+
+  }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+.login-register{
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
 
-  color: #8c8c8c;
+  justify-content: center;
+  align-items: center;
 
-  margin: 0;
-}
+  padding: 4vh;
 
-#container a {
-  text-decoration: none;
+
+  #login{
+    --background: black;
+    --color: white;
+    font-weight: bold;
+
+    width: 90%;
+  }
+
+  #register{
+    --background: transparent;
+    --color: white;
+    --border-color: white;
+    font-weight: bold;
+
+    width: 90%;
+  }
+
+  #guest{
+    font-weight: bold;
+    color: rgb(174, 217, 228);
+  }
+
 }

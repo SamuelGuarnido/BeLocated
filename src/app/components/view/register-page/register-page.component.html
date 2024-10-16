@@ -1,0 +1,66 @@
+
+<ion-content class = "content">
+  <ion-button fill="clear" [routerLink]="['/home']">
+    <ion-icon name="chevron-back-outline" ></ion-icon>
+  </ion-button>
+
+  <div class = "register-process">
+    <div class = "welcome">
+      Hi! Welcome to BeLocated!
+    </div>
+
+    <div class="register-input">
+      <!-- Campo de entrada para email -->
+      <ion-input
+        type="email"
+        fill="solid"
+        label="Email"
+        label-placement="floating"
+        placeholder="Enter your email"
+        [formControl]="emailControl"
+      ></ion-input>
+
+      <ion-input
+        id = "password"
+        type="password"
+        fill="solid"
+        label="Password"
+        label-placement="floating"
+        placeholder="Enter your password"
+        [formControl]="passwordControl"
+      ></ion-input>
+
+      <ion-input
+        id = "password"
+        type="password"
+        fill="solid"
+        label="Confirm your password"
+        label-placement="floating"
+        [formControl]="passwordControl2"
+      ></ion-input>
+
+      <ion-button id="register-btn" fill="solid" mode="md" (click)="onRegister()">Register</ion-button>
+
+      <div id="orRegister">
+        <p>
+          Or Register with
+        </p>
+        <div class = "o-auth-btn">
+          <ion-button (click)="onGoogleSignUp()" expand="block" fill="outline">
+            <ion-icon name="logo-google"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+
+      <div class = "loginInRegister">
+       Already have an account?
+        <a id="login-register-btn" href="/login">Login now</a>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+</ion-content>

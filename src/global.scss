@@ -35,3 +35,17 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+
+.custom-toast {
+  --background: #b9b9b8; /* Cambia el fondo del toast */
+  --color: #000; /* Cambia el color del texto */
+  --border-radius: 12px; /* Bordes redondeados */
+  --padding-top: 20px; /* Ajusta el padding */
+  --padding-bottom: 20px;
+  --button-color: #333; /* Color de botones, si es aplicable */
+  --width: auto;
+  font-size: 1.7vh; /* Tamaño de fuente */
+  font-family: "Roboto", sans-serif;
+  text-align: center; /* Centrado de texto */
+}

@@ -1,0 +1,59 @@
+
+<ion-content class = "content">
+  <ion-button fill="clear" [routerLink]="['/home']">
+    <ion-icon name="chevron-back-outline" ></ion-icon>
+  </ion-button>
+
+  <div class = "login-process">
+    <div class = "welcome">
+      Hi! Welcome back!
+    </div>
+
+    <div class="login-input">
+      <!-- Campo de entrada para email -->
+      <ion-input
+        type="email"
+        fill="solid"
+        label="Email"
+        label-placement="floating"
+        placeholder="Enter your email"
+        [formControl]="emailControl"
+      ></ion-input>
+
+      <ion-input
+        id = "password"
+        type="password"
+        fill="solid"
+        label="Password"
+        label-placement="floating"
+        placeholder="Enter your password"
+        [formControl]="passwordControl"
+      ></ion-input>
+
+      <ion-button id="forgotPass" fill="clear" mode="md">Forgot password?</ion-button>
+
+      <ion-button id="login-btn" fill="solid" mode="md" [routerLink]="['/login']" (click)="onLogin()">Login</ion-button>
+
+      <div id="orLogin">
+        <p>
+          Or Login with
+        </p>
+        <div class = "o-auth-btn">
+          <ion-button (click)="onGoogleSignIn()" expand="block" fill="outline">
+            <ion-icon name="logo-google"></ion-icon>
+          </ion-button>
+        </div>
+      </div>
+
+      <div class = "registerInLogin">
+        Don't have an account?
+        <a id="register-login-btn" href="/register">Register now</a>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+</ion-content>
