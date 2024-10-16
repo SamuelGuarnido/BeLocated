@@ -1,0 +1,23 @@
+<mat-dialog-content class="custom-dialog">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let typeGroup of types">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ typeGroup.category }}  <!-- Muestra el nombre de la categoría -->
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <ng-container *ngFor="let type of typeGroup.items" class = "types">
+        <mat-checkbox [(ngModel)]="type.selected">  <!-- Usa ngModel para enlazar el estado -->
+          <mat-label>{{ type.label }}</mat-label>
+        </mat-checkbox>
+      </ng-container>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <div class="button-container">
+    <ion-button id="apply" (click)="applyFilters()" fill="outline" mode="md">Apply</ion-button>
+  </div>
+</mat-dialog-content>
+

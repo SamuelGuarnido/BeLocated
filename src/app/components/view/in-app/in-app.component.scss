@@ -1,0 +1,116 @@
+.bg-in-app {
+  position: absolute;
+  width: 100%; /* Cambiado de size a width */
+  height: 100%; /* Añadido height */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/assets/photo/giralda.jpg'); /* Cambia la URL de la imagen */
+  background-size: cover; /* Cubre todo el contenedor */
+  background-position: center center; /* Centra la imagen */
+  opacity: 0.3; /* Ajusta la opacidad aquí (0.0 - 1.0) */
+  z-index: -1; /* Coloca el div detrás del contenido */
+}
+
+ion-content {
+  --background: transparent; /* Asegúrate de que esto esté funcionando correctamente */
+}
+
+.toolbar-footer {
+  .button-container {
+    display: flex;
+    justify-content: space-between; /* Espacio entre botones */
+    align-items: center; /* Alineación vertical */
+    width: 100%; /* Asegúrate de que el contenedor use el ancho completo */
+    height: 8vh;
+
+    border-top: 0.2vh solid lightslategray;
+
+    button {
+      flex: 1; /* Cada botón tomará un ancho igual */
+      display: flex;
+      flex-direction: column; /* Coloca el texto debajo del icono */
+      justify-content: center;
+      align-items: center; /* Centra el contenido horizontalmente */
+      background-color: #0d0d0d;
+      height: 100%;
+
+      ion-label {
+        font-size: 1.5vh; /* Cambia el tamaño de la fuente según lo necesites */
+      }
+    }
+
+    .first-button {
+      margin-right: auto; /* Asegura que el primer botón esté alineado al inicio */
+    }
+
+    .last-button {
+      margin-left: auto; /* Asegura que el último botón esté alineado al final */
+    }
+  }
+}
+
+.minimal-card {
+  border-radius: 8px; /* Bordes redondeados */
+  margin:2vh;
+  display: flex;
+  justify-content: space-between; /* Asegura que haya espacio entre los elementos */
+  align-items: center; /* Alinea verticalmente los elementos */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadir sombra */
+  transition: transform 0.2s; /* Añadir transición para efecto hover */
+
+  background-color: #0d0d0d;
+
+  button{
+    margin: 2vh;
+    background: transparent;
+  }
+
+  .card-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .card-items {
+    flex-grow: 1; /* Esto hace que tome todo el espacio disponible */
+    mat-card-header {
+      padding-top: 0vh;
+      padding-bottom: 2vh;
+    }
+  }
+
+  .card-buttons {
+    background: transparent;
+    display: flex;
+    gap: 10px; /* Espacio entre los iconos */
+    mat-icon {
+      background: transparent;
+      font-size: 24px; /* Tamaño de los iconos */
+    }
+  }
+
+  .card-title-custom {
+    font-size: 3vh; /* Cambia el tamaño según lo necesites */
+  }
+
+  .card-subtitle-custom {
+    margin-top: 0.3vh;
+    font-size: 1.5vh; /* Cambia el tamaño según lo necesites */
+    color: lightslategray;
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column; /* Coloca el texto debajo del spinner */
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ocupa todo el espacio disponible */
+
+  ion-spinner {
+    margin-bottom: 10px; /* Espacio entre el spinner y el texto */
+  }
+}

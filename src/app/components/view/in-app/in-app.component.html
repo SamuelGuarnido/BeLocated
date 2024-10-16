@@ -1,3 +1,68 @@
-<ion-content>
+<div class="bg-in-app"></div>
 
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+  <!-- Cargando mientras se obtienen los establecimientos -->
+  <ng-container *ngIf="isLoadingEstablishments; else content">
+    <div class="loading-container">
+      <ion-spinner name="crescent"></ion-spinner>
+      <ion-label>Loading...</ion-label>
+    </div>
+  </ng-container>
+
+  <ng-template #content>
+    <!-- Comprobar si hay establecimientos -->
+    <ng-container *ngIf="establishments && establishments.length > 0; else noEstablishments">
+      <mat-card *ngFor="let site of establishments" class="minimal-card">
+        <div class="card-content">
+          <div class="card-buttons">
+            <button (click)="onMapClick(site)">
+              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="star_outline"></mat-icon>
+            </button>
+          </div>
+
+          <div class="card-items">
+            <mat-card-header>
+              <mat-card-subtitle class="card-subtitle-custom">{{ amenityTranslations[site.tags.amenity] || site.tags.brand || '' }}</mat-card-subtitle>
+              <mat-card-title class="card-title-custom">{{ site.tags.name || site.tags.amenity }}</mat-card-title>
+            </mat-card-header>
+          </div>
+
+          <div class="card-buttons">
+            <button mat-icon-button (click)="onFavoriteClick(site)">
+              <mat-icon>map_outline</mat-icon>
+            </button>
+          </div>
+        </div>
+      </mat-card>
+    </ng-container>
+
+    <!-- Mensaje si no hay establecimientos -->
+    <ng-template #noEstablishments>
+      <div class="no-establishments-message">
+        <ion-label>No hay establecimientos disponibles.</ion-label>
+      </div>
+    </ng-template>
+  </ng-template>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar class="toolbar-footer">
+    <div class="button-container">
+      <button mat-icon-button class="first-button" (click)="openFilterMenu()">
+        <mat-icon>filter_list</mat-icon>
+      </button>
+
+      <button mat-icon-button>
+        <mat-icon>reorder</mat-icon>
+      </button>
+
+      <button mat-icon-button class="last-button">
+        <mat-icon>person</mat-icon>
+      </button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
