@@ -13,6 +13,7 @@ import { Coords } from '../../interfaces/coords';
 import { FilterComponent } from '../modales/filter/filter.component';
 import { PopoverController, IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
+import { ReorderComponent } from '../modales/reorder/reorder.component';
 
 @Component({
   selector: 'app-in-app',
@@ -28,6 +29,12 @@ export class InAppComponent implements OnInit {
   isLoadingEstablishments = false;
   establishments: Establishment[] = [];
   selectedTypes: string[] = [];
+
+  selectedOrder = [
+    { label: 'Alphabet', selected: false },
+    { label: 'Proximity', selected: false },
+  ];
+
 
   amenityTranslations: { [key: string]: string } = {
     restaurant: 'Restaurante',
@@ -121,8 +128,6 @@ export class InAppComponent implements OnInit {
   ];
 
 
-
-
   constructor(
     private establishmentService: EstablishmentService,
     private dialog: MatDialog
@@ -146,6 +151,28 @@ export class InAppComponent implements OnInit {
       this.isLoadingEstablishments = false;
       this.establishments = this.establishmentService.establishments;
     }
+  }
+
+  private sortEstablishments(establishments: Establishment[]): Establishment[] {
+    return establishments.sort((a, b) => {
+      const orderCriteria = this.selectedOrder.map(order => order.label);
+
+      for (const criterion of orderCriteria) {
+        let comparison = 0;
+
+        if (criterion === 'Alphabet') {
+          comparison = a.tags.name.localeCompare(b.tags.name);
+        } else if (criterion === 'Amenity') {
+          comparison = a.tags.amenity.localeCompare(b.tags.amenity);
+        }
+
+        if (comparison !== 0) {
+          return comparison;
+        }
+      }
+
+      return 0;
+    });
   }
 
   async getEstablishments(): Promise<void> { // Cambiado a async
@@ -182,6 +209,11 @@ export class InAppComponent implements OnInit {
               }
             };
           });
+
+          if (this.selectedOrder.length > 0) {
+            this.establishments = this.sortEstablishments(this.establishments);
+          }
+
         },
         error: (error) => {
           console.error('Error fetching establishments:', error);
@@ -211,6 +243,21 @@ export class InAppComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.selectedTypes = result; // Actualizar los tipos seleccionados
+        this.getEstablishments(); // Actualizar los establecimientos según los filtros
+      }
+    });
+  }
+
+  async openOrderMenu(){
+    const dialogRef = this.dialog.open(ReorderComponent, {
+      data: { selectedOrder: this.selectedOrder }, // Pasar tipos seleccionados actuales
+      autoFocus: false,
+      backdropClass: 'custom-backdrop'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.selectedOrder = result; // Actualizar los tipos seleccionados
         this.getEstablishments(); // Actualizar los establecimientos según los filtros
       }
     });

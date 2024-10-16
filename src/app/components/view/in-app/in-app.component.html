@@ -52,15 +52,15 @@
 <ion-footer>
   <ion-toolbar class="toolbar-footer">
     <div class="button-container">
-      <button mat-icon-button class="first-button" (click)="openFilterMenu()">
+      <button mat-icon-button slot="start" (click)="openFilterMenu()">
         <mat-icon>filter_list</mat-icon>
       </button>
 
-      <button mat-icon-button>
+      <button mat-icon-button (click)="openOrderMenu()">
         <mat-icon>reorder</mat-icon>
       </button>
 
-      <button mat-icon-button class="last-button">
+      <button mat-icon-button slot="end">
         <mat-icon>person</mat-icon>
       </button>
     </div>

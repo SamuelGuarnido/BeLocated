@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PopoverController, IonicModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgFor } from '@angular/common';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
