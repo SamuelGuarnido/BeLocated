@@ -1,0 +1,7 @@
+{
+  "name": "BeLocated",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
