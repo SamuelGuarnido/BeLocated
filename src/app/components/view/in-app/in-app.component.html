@@ -19,7 +19,7 @@
       <mat-card *ngFor="let site of establishments" class="minimal-card">
         <div class="card-content">
           <div class="card-buttons">
-            <button (click)="onMapClick(site)">
+            <button (click)="onFavoriteClick(site)">
               <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="star_outline"></mat-icon>
             </button>
           </div>
@@ -32,12 +32,13 @@
           </div>
 
           <div class="card-buttons">
-            <button mat-icon-button (click)="onFavoriteClick(site)">
+            <button mat-icon-button (click)="onMapClick(site)">
               <mat-icon>map_outline</mat-icon>
             </button>
           </div>
         </div>
       </mat-card>
+
     </ng-container>
 
     <!-- Mensaje si no hay establecimientos -->

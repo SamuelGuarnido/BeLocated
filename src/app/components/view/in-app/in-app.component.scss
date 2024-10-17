@@ -17,6 +17,10 @@ ion-content {
   --background: transparent; /* Asegúrate de que esto esté funcionando correctamente */
 }
 
+#map{
+  z-index: 1;
+}
+
 .toolbar-footer {
   .button-container {
     display: flex;
@@ -113,4 +117,9 @@ ion-content {
   ion-spinner {
     margin-bottom: 10px; /* Espacio entre el spinner y el texto */
   }
+}
+
+
+.custom-dialog-panel {
+  --mdc-dialog-container-color: red;
 }

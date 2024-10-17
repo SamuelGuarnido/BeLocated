@@ -15,6 +15,9 @@ import { PopoverController, IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { ReorderComponent } from '../modales/reorder/reorder.component';
 
+import * as L from 'leaflet';
+import { MapModalComponent } from '../modales/map-modal/map-modal.component';
+
 @Component({
   selector: 'app-in-app',
   templateUrl: './in-app.component.html',
@@ -23,6 +26,8 @@ import { ReorderComponent } from '../modales/reorder/reorder.component';
   imports: [IonicModule, CommonModule, FormsModule, MatCardModule, MatIconModule, MatFormField, MatDialogModule]
 })
 export class InAppComponent implements OnInit {
+  private map: L.Map | undefined;
+
   searchQuery: string = '';
 
   coords?: Coords;
@@ -231,7 +236,62 @@ export class InAppComponent implements OnInit {
 
   onFavoriteClick(site: Establishment) { }
 
-  onMapClick(site: Establishment) { }
+  onMapClick(site: Establishment) {
+
+    console.log("Clicked on:", site);
+
+    const lat = site.lat;
+    const lon = site.lon;
+
+    /*
+    // Verificar que lat y lon estén definidos y sean números
+    if (isNaN(lat) || isNaN(lon)) {
+        console.error("Latitud o longitud no válidas para el establecimiento:", site);
+        return; // Salir de la función si no están válidos
+    }
+
+    const name = site.tags.name || 'Unnamed Establishment';
+
+    // Inicializar el mapa solo si no está inicializado
+    if (!this.map) {
+        this.map = L.map('map').setView([lat, lon], 15);
+
+        // Agregar una capa de mapa
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(this.map);
+    } else {
+        // Cambiar la vista del mapa si ya está inicializado
+        this.map.setView([lat, lon], 15);
+    }
+
+    // Agregar un marcador
+    const myIcon = L.icon({
+        iconUrl: 'assets/leaflet/marker-icon.png',
+        shadowUrl: 'assets/leaflet/marker-shadow.png',
+    });
+
+    L.marker([lat, lon], { icon: myIcon }).addTo(this.map)
+        .bindPopup(name)
+        .openPopup();
+        */
+    const dialogRef = this.dialog.open(MapModalComponent, {
+      data: { latitude: lat, longitude: lon, site: site }, // Pasar tipos seleccionados actuales
+      width: '90%',
+      height: '60%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+
+      }
+    });
+  }
+
+
+
+
+
 
   async openFilterMenu() {
     const dialogRef = this.dialog.open(FilterComponent, {

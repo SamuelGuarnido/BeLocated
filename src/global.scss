@@ -24,6 +24,8 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+@import '~leaflet/dist/leaflet.css';
+
 
 /**
  * Ionic Dark Mode
@@ -48,4 +50,8 @@
   font-size: 1.7vh; /* Tamaño de fuente */
   font-family: "Roboto", sans-serif;
   text-align: center; /* Centrado de texto */
+}
+
+.custom-modalbox > mat-mdc-dialog-surface {
+  background-color: transparent !important;
 }
