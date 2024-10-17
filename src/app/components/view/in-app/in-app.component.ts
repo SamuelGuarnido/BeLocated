@@ -5,13 +5,14 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatFormField } from '@angular/material/form-field';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
+import { RouterLink } from '@angular/router';
 
 import { Geolocation } from '@capacitor/geolocation';
 import { EstablishmentService } from '../../services/establishments-service/establishment.service';
 import { Establishment } from '../../interfaces/establisment';
 import { Coords } from '../../interfaces/coords';
 import { FilterComponent } from '../modales/filter/filter.component';
-import { PopoverController, IonicModule } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { ReorderComponent } from '../modales/reorder/reorder.component';
 
@@ -23,7 +24,7 @@ import { MapModalComponent } from '../modales/map-modal/map-modal.component';
   templateUrl: './in-app.component.html',
   styleUrls: ['./in-app.component.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, MatCardModule, MatIconModule, MatFormField, MatDialogModule]
+  imports: [IonicModule, CommonModule, FormsModule, MatCardModule, MatIconModule, MatFormField, MatDialogModule, RouterLink]
 })
 export class InAppComponent implements OnInit {
   private map: L.Map | undefined;

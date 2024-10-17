@@ -18,6 +18,10 @@ export const routes: Routes = [
     loadComponent: () => import('./components/view/in-app/in-app.component').then((m) => m.InAppComponent),
   },
   {
+    path: 'userSettings',
+    loadComponent: () => import('./components/view/user-settings/user-settings.component').then((m) => m.UserSettingsComponent),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
